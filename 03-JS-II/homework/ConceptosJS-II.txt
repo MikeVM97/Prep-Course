@@ -1,0 +1,117 @@
+// EXPRESIONES DE BUCLE (for/while)
+
+** Son expresiones de bucle, incorporados por defecto en Javascript
+** También existes otras como do...while, labeled, continue, for...in y for...of
+
+   La expresión de "for" crea un bucle que consiste en 3 expresiones, encerradas en paréntesis
+   y separadas por puntos y comas, seguidas se una sentencia ejecutada en bucle, así:
+
+   for ([expresión inicial]; [condición]; [expresión final]) {
+       sentencia
+   }
+   Ejemplo:
+
+   for (var i=0; i<9; i++) {
+       n+=i;
+       miFunction(n)
+   }
+
+** Una declaración "while" ejecuta sus instrucciones siempre que una condición especificada se evalúe como true
+** Una instrucción while tiene el siguiente aspecto:
+
+   while (condición) {
+       expresión
+   } 
+
+** Si la instrucción se vuelve false, la instrucción dentro del bucle se deja de ejecutar y el control
+   pasa a la instrucción que sigue el bucle
+
+   Ejemplo 1:
+
+let n=0;
+let x=0;
+while(n<3) {
+    n++
+    x+=n
+}
+
+    Con cada iteración el bucle incrementa n y se agrega ese valor a x. Por lo tanto,
+    x y n toman los siguientes valores:
+
+        » Después de la primera pasada: n=1 x=1
+        » Después de la primera pasada: n=2 x=3
+        » Después de la primera pasada: n=3 x=6
+
+    Ejemplo 2:
+
+    while(true) {
+        console.log('Hola mundo');
+    }
+
+    Las declaraciones en el bucle while anterior se ejecuturán indefinidamente porque la condición nunca se vuelve false
+    Asegúrate de que la condición en un bucle eventualmente se convierta en false, de lo contrario el bucle nunca terminará
+
+
+
+// OPERADORES LÓGICOS
+
+   ** && (and)
+
+   Esto evaluará ambas expresiones y retornará verdadero si ambas expresiones son true
+   Si uno (o ambos) de ellos es falso, este operador devolverá false
+
+   Ejemplo:
+
+   let hour=12;
+   let minute=30;
+
+   if(hour==12 && minute==30) {
+       alert("La hora es 12:30");
+   }
+
+
+   ** || (or)
+
+   Está pensado solo para manipular valores booleanos
+   Si cualquiera de sus argumentos es true, retorna true, de lo contrario retorna false
+
+   Hay cuatro combinaciones lógicas posibles:
+
+   1 alert(true||false); // true
+   2 alert(false||true); // true
+   3 alert(true||true); // true
+   4 alert(false||false); // false
+
+   Ejemplo:
+
+   let hour=9
+
+   if(hour<10||hour>18) {
+       alert("la oficina está cerrada");
+   }
+
+
+   ** ! (not)
+
+   La sintaxis es muy simple
+
+   result = !value;
+
+   El operador realiza un solo argumento y realiza lo siguiente:
+   1. Convierte el operando al tipo booleano: true/false
+   2. Retorna el valor contrario
+
+   Por ejemplo:
+
+   if(!true) {
+       console.log('un argumento')
+   }
+
+   El ! devolverá false, porque es lo contrario de true, asi que ese código se ejecutará
+
+   if(!(1===1)) {
+       console.log('unargumento')
+   }
+
+   1 es igual a 1, de modo que la expresión devuelve true. El operador ! devolverá lo contrario de eso,
+   por lo que este código no se ejecutará
