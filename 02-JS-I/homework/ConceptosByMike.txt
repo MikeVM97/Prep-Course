@@ -1,0 +1,101 @@
+// VARIABLES
+   
+    Una variable almacena un tipo de dato al igual como lo hace una ecuación aritmética
+    Toda variable tiene un nombre y almacena un tipo de dato
+    Existen tres tipos de variables:
+
+    1. var
+    // Es una variable que SI puede cambiar su valor y su scope es local.
+    var string = 'Mike'
+    var suma = 10+20
+
+    Los nombres de las variables anteriores son: string y suma
+    El nombre de una variable no puede contener números (solo letras), ejm: var 123 = null
+    Esto arrojará un error en el output
+
+    Toda variable almacena un tipo de dato al otro lado de la igualdad
+    Puede ser un número, un string u otro tipo de dato
+    Del ejemplo anterior los datos son: el string 'Mike' y el número 10+20
+
+    // La misma lógica aplica para las variables 2(let) y 3(const).
+
+    2. let
+    // Es una variable que también podrá cambiar su valor, pero solo funcionará en el bloque donde fue creada.
+
+    3. const
+    // Es una constante la cual NO cambiará su valor en ningún momento en el futuro.
+
+
+// STRINGS
+
+    // Un string es un bloque de texto, siempre va encerrado entre comillas (simple o doble)
+    Ejemplo:
+    var ciudad='Valencia'
+    let nombre='Mariano'
+    const mes='Agosto'
+
+    De los ejemplos anteriores, los strings respectivos son: Valencia, Mariano y Agosto
+
+
+// FUNCIONES (argumentos, return)
+   
+    // El comando 'function' representa a una función que pedirá realizar algo
+    // Las funciones son un llamado a la accción que piden retornar algo
+    // Las funciones requieren de uno o mas códigos para ejecutarse correctamente
+
+    Al igual que las variables, las funciones también se componen de Nombre y Tipo de dato
+    El tipo de dato que almacena la función se llama argumento y va colocado entre paréntesis
+
+    function miFunction(num)
+
+    Del ejemplo anterior, el nombre de la función es 'miFunction' y el argumento 'num'
+
+    La estructura completa de una función es la siguiente:
+
+    function miFunction(num){
+        código
+    }
+
+    Para ejecutarse correctamente una función, debe tener la estructura anterior presentada
+    El bloque entre llaves debe contener almenos un código
+
+    // Declaración 'return'
+
+    Si agregamos return al ejemplo anterior, podemos construir algo así:
+
+    function miFunction(num) {
+        return num**2
+    }     
+
+    Esto indica que si escribo miFunction(10), me retornará el argumento elevado al cuadrado, osea 100
+
+    En conclusión, la declaración return representa una orden para la función dada
+    La orden de retornar algo, ese algo que se ha indicado allí
+
+// DECLARACIONES if
+
+    // También conocido como statement (sentencia)
+    // Este tipo de declaración representa una condicional para la función dada
+
+    Por ejemplo:
+
+    function suma(a,b) {
+        if (a+b===10) {
+            return true
+        } else {
+            return false
+        }
+    }
+
+    Esto quiere decir que se ha aplicado una condición para la funcion 'suma'
+    Se ha pedido que si la suma de a+b es estrictamente igual a 10, retorne true; de lo contrario retorne false
+    Si escribimos en la consola:
+    suma(4,6)
+    entonces retornará true, sin embargo
+    suma(2,3)
+    retornará false
+
+// VALORES BOOLEANOS (true,false)
+
+    // Los booleanos son un tipo de dato primitivo
+    // Un booleano tiene 2 posibles valores: true(verdadero) o false(falso) 
