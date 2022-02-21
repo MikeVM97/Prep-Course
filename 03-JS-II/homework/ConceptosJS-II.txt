@@ -16,6 +16,61 @@
        miFunction(n)
     }
 
+    Primer Ejemplo
+
+    function esPrimo(numero) {
+    if(numero < 2) return false
+    if(numero === 2) return true
+      for(var i = 2; i < numero; i++) {
+        if(numero % i === 0) {
+          return false
+        }
+      }
+      return true
+    }
+    
+    Con el ejemplo anterior, se desea encontrar valores para el argumento "numero" que sean números primos
+    En la linea 22 y 23 establecemos los primeros parámetros, donde indicamos que 
+    para todo número menor a 2 retorne false y si el número es igual a 2 retorne true
+    
+    Luego con la expresión de bucle "for" establecemos las tres expresiones(inicial,condición,final)
+    En la inicial le pedimos al bucle que empieze las iteraciones a partir de i = 2
+    En la condición le pedimos al bucle que una vez ejecute La Inicial vaya hasta i < numero
+    Ejemplo, si numero=10, entonces "i" hará iteraciones desde i=2 hasta i=9
+    En la final le pedimos al bucle que por cada iteración que realize, en la siguiente iteración incremente su valor en 1 y así sucesivamente
+    Ejemplo, si numero=10, entonces 
+        1° (2%2 === 0) --> true
+
+        2° (3%2 === 0) --> true
+
+        3° (4%2 === 0) --> false
+        4° (4%3 === 0) --> true
+
+        5° (5%2 === 0) --> true
+        6° (5%3 === 0) --> true
+        7° (5%4 === 0) --> true
+
+        8° (6%2 === 0) --> false
+
+
+    Segundo Ejemplo
+
+    function tablaDelSeis() {
+      let arrayTablaDe6 = []
+      for(let i=0; i<11; i++) {
+        arrayTablaDe6.push(6*i)
+      }
+      return arrayTablaDe6
+    }
+
+    En este segundo ejemplo incluimos un "Array" [] 
+    Creamos una lista de números que son múltiplos de 6 --> [0,6,12,18,24,30,36,42,48,54,60]
+    
+
+
+
+    WHILE
+
     ** Una declaración "while" ejecuta sus instrucciones siempre que una condición especificada se evalúe como true
     ** Una instrucción while tiene el siguiente aspecto:
 
@@ -39,17 +94,56 @@
     x y n toman los siguientes valores:
 
         » Después de la primera pasada: n=1 x=1
-        » Después de la primera pasada: n=2 x=3
-        » Después de la primera pasada: n=3 x=6
+        » Después de la segunda pasada: n=2 x=3
+        » Después de la tercera pasada: n=3 x=6
 
     Ejemplo 2:
 
     while(true) {
-        console.log('Hola mundo');
+        console.log('Hola mundo')
     }
 
     Las declaraciones en el bucle while anterior se ejecuturán indefinidamente porque la condición nunca se vuelve false
     Asegúrate de que la condición en un bucle eventualmente se convierta en false, de lo contrario el bucle nunca terminará
+
+
+    DO WHILE
+
+    La sentencia (hacer mientras) crea un bucle que ejecuta una sentencia especificada, hasta que la condición de comprobación
+    se evalúa como falsa. La condición se evalúa después de ejecutar la sentencia, dando como resultado que la sentencia
+    especificada se ejecute al menos una vez
+
+    let result = ''
+    let i = 0
+
+    do {
+      i = i + 1
+      result = result + i
+    } while (i < 5)
+
+    console.log(result)
+    // expected result: "12345"
+
+    Sintaxis
+
+    do
+      sentencia
+    while (condición)
+
+    sentencia: Una sentencia que se ejecuta al menos una vez y es reejecutada cada vez que la condición se  
+               evalúa a verdadera. Para ejecutar múltiples sentencias dentro de un bucle, utilice la
+               sentencia block ({ ... }) para agrupar aquellas sentencias.
+    condicón: Una expresión se evalúa después de cada pase del bucle. Si condición se evalúa como verdadera,
+              la sentencia se re-ejecuta. Cuando condición se evalúa como falsa, el control pasa a la siguiente sentencia hacer mientras.
+
+    Ejemplos
+
+    do {
+        i += 1
+        document.write(i)
+    } while (i < 5)
+
+    El bucle do while itera al menos una vez y se reitera hasta que i = 4
 
 
 
@@ -62,11 +156,11 @@
 
    Ejemplo:
 
-   let hour=12;
-   let minute=30;
+   let hour=12
+   let minute=30
 
    if(hour==12 && minute==30) {
-       alert("La hora es 12:30");
+       alert("La hora es 12:30")
    }
 
 
@@ -77,17 +171,17 @@
 
    Hay cuatro combinaciones lógicas posibles:
 
-   1 alert(true||false); // true
-   2 alert(false||true); // true
-   3 alert(true||true); // true
-   4 alert(false||false); // false
+   1 alert(true||false) // true
+   2 alert(false||true) // true
+   3 alert(true||true) // true
+   4 alert(false||false) // false
 
    Ejemplo:
 
    let hour=9
 
    if(hour<10||hour>18) {
-       alert("la oficina está cerrada");
+       alert("la oficina está cerrada")
    }
 
 
@@ -95,7 +189,7 @@
 
    La sintaxis es muy simple
 
-   result = !value;
+   result = !value
 
    El operador realiza un solo argumento y realiza lo siguiente:
    1. Convierte el operando al tipo booleano: true/false

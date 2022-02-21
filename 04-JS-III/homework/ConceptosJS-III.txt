@@ -1,0 +1,121 @@
+// ARRAYS
+
+    Es un objeto global que se usa en la construcción de listas
+    Tanto la longitud como el tipo de elementos de un Array son variables
+
+    Ejemplo:
+
+        let frutas = ["Manzana", "Banana", "Pera", "Sandia", "Papaya"]
+
+
+    **Para obtener el n° de elementos contenidos en el Array
+
+        console.log (frutas.length)
+        // 2
+
+    **Para acceder a un elemento de Array en específico mediante su índice
+
+        let primero = frutas [0]     o       console.log (frutas[0])
+        // "Manzana"
+
+        let ultimo = frutas [5]      o       console.log(frutas[5])
+        // "Papaya"
+
+    **Para recorrer un Array
+
+        frutas.forEach (function(elemento, indice, array) {
+            console.log(elemento, indice)   
+        })
+
+        //  Manzana 0
+            Banana 1
+            Pera 2
+            Sandia 3
+            Papaya 4
+
+    **Para añadir un elemento al final de un Array
+
+        let nuevoElemento = frutas.push ("Naranja")
+        // ["Manzana", "Banana", "Pera", "Sandia", "Papaya", "Naranja"]
+
+    ** Para eliminar el último elemento de un Array
+
+        let ultimo = frutas.pop()
+        // ["Manzana", "Banana", "Pera", "Sandia", "Papaya"]
+
+    ** Añadir un elemento al principio de un Array
+
+        let nuevoElemento = frutas.unshift("Fresa")
+        // ["Fresa", "Manzana", "Banana", "Pera", "Sandia", "Papaya"]
+
+    ** Eliminar el primer elemento de un Array
+
+        let primero = frutas.shift()
+        // ["Manzana", "Banana", "Pera", "Sandia", "Papaya"]
+
+    ** Encontrar el índice de un elemento Array
+
+        let pos = frutas.indexOf ("Pera")
+        // 2
+
+    ** Eliminar un único elemento mediante su posición
+
+        let elementoEliminado = frutas.splice (pos, 2)
+        // ["Manzana", "Banana", "Sandia", "Papaya"]
+
+    ** Eliminar varios elementos a partir de una posición
+
+        let pos = 1, numElementos = 2
+
+        let elementosEliminados = vegetales.splice (pos, numElementos)
+        // ["Sandia", "Papaya"]
+
+    ** Array.Prototype.Join
+
+        El método join() une todos los elementos de una matriz (o un objeto similar a una matriz)
+        en una cadena y devuelve esta cadena
+
+        Ejemplo:
+
+        const elements = ["Fire", "Air", "Water"]
+
+        console.log (elements.join())
+        // expected output: "Fire,Air,Water"
+
+         console.log (elements.join(''))
+        // expected output: "FireAirWater"
+
+        console.log (elements.join('-'))
+        // expected output: "Fire-Air-Water"
+
+        Uniendo un arreglo 4 veces en diferentes formas
+
+        var a = ['Viento', 'Lluvia', 'Fuego'];
+        var miVar1 = a.join();      // asigna 'Viento,Lluvia,Fuego' a miVar1
+        var miVar2 = a.join(', ');  // asigna 'Viento, Lluvia, Fuego' a miVar2
+        var miVar3 = a.join(' + '); // asigna 'Viento + Lluvia + Fuego' a miVar3
+        var miVar4 = a.join('');    // asigna 'VientoLluviaFuego' a miVar4 
+
+        Unirse a un objeto tipo matriz
+
+        function f(a, b, c) {
+          var s = Array.prototype.join.call(arguments);
+          console.log(s); // '1,a,true'
+        }
+        f(1, 'a', true);
+        // resultado esperado: "1,a,true"
+
+
+    UTILIZANDO BUCLES FOR EN ARRAYS
+
+    const nombreEstudiantes = ["Martin", "Antonio", "Sara", "Samuel"]
+
+    for (let i=0; i<nombreEstudiantes.length; i++) {
+        console.log (nombreEstudiantes[i])
+    }
+
+    // 'Martin'
+    // 'Antonio'
+    // 'Sara' 
+    // 'Samuel'
+           
