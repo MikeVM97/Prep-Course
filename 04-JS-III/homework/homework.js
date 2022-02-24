@@ -38,7 +38,7 @@ function agregarItemAlFinalDelArray(array, elemento) {
   // Añade el "elemento" al final del array
   // y devuelve el array
   // Tu código:
-  array[array.length] = elemento
+  array.push (elemento)
   return array
 }
 
@@ -92,7 +92,12 @@ function promedioResultadosTest(resultadosTest) {
   // "resultadosTest" debe ser una matriz de enteros (int/integers)
   // Itera (en un bucle) los elementos del array, calcula y devuelve el promedio de puntajes
   // Tu código:
-  return agregarNumeros (resultadosTest) / resultadosTest.length
+  var total = 0
+  for (var i=0; i<resultadosTest.length; i++) {
+    total = total + resultadosTest[i]
+  }
+  resultado = total / resultadosTest.length
+  return resultado
 }
 
 
@@ -101,7 +106,7 @@ function numeroMasGrande(numeros) {
   // Devuelve el número más grande
   // Tu código:
   var maximo = numeros[0]
-  for (var i=1; i<numeros.length; i++) {
+  for (var i=0; i<numeros.length; i++) {
     if (numeros[i] > maximo) {
       maximo = numeros [i]
     }

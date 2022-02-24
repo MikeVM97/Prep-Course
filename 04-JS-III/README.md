@@ -6,7 +6,10 @@
       <a href="https://airtable.com/shrSzEYT4idEFGB8d?prefill_clase=04-JS-III">
         <img src="https://static.thenounproject.com/png/204643-200.png" width="100"/>
         <br>
-        Hacé click acá para dejar tu feedback sobre esta clase.
+        Lo único que quiero agregar es acerca de el último ejercicio del homework, me refiero a "function continueStatement(numero)"
+        Si respetamos lo que dice el enunciado, la expresión que contiene la función está mal escrita, puesto que cuando "i = 5"
+        debería omitirse la iteración (suma) justo ahí, sin embargo con el código que está escrito esto no sucederá.
+        Esa es la única aclaración respecto al homework, gracias por leer.
       </a>
     </td>
   </tr>
