@@ -1,0 +1,278 @@
+PROTOTYPE
+
+    CLASS E INSTANCIACIÓN PSEUDO CLÁSICA
+
+        function Alumno(nombre) {
+            this.nombre = nombre
+            this.saludo = function() {
+             return 'Mi nombre es ' + this.nombre
+            }
+        }
+
+        var agus = new Alumno ('Agustin')
+        var ger = new Alumno ('Gerardo')
+
+        console.log (agus.saludo())    //  'Mi nombre es Agustin'
+        console.log (ger.saludo())     //  'Mi nombre es Gerardo'
+
+            Alumno: nombre de la clase
+            nombre: propiedad/argumento de la clase (en este caso es ambas cosas, argumento o parámetro y propiedad)
+            saludo: nombre del método de la clase (el único método en ese caso)
+            keyword this: hace referencia al valor de la propiedad nombre, o al valor del método saludo()
+            keyword new:  crea una instancia de la clase Alumno (ejm: agus.nombre // 'Agustin') 
+
+    PROTOTYPE
+
+        function Usuario(nombre,github) {
+            this.nombre = nombre
+            this.github = github
+        }
+
+        Usuario.prototype.introduccion = function() {
+            return 'Mi nombre es ' + this.nombre + ', mi usuario de github es ' + this.github + '.' 
+        }
+
+        var gera = new Usuario ('Geraldine', 'gera.lazo')
+        var facu = new Usuario ('Facundo', 'facu.valdez')
+
+        console.log (gera.introduccion())   //  Mi nombre es Geraldine, mi usuario de github es gera.lazo.
+        console.log (facu.introduccion())   //  Mi nombre de Facundo, mi usuario de github es facu.valdez.
+
+        console.log (gera)                  //  Usuario {nombre: 'Geraldine', github: 'gera.lazo'}
+        console.log (facu)                  //  Usuario {nombre: 'Facundo', github: 'facu.valdez'}
+
+        gera.__proto__                      //  {introduccion:ƒ, constructor:ƒ}
+
+    Object.create
+
+        > var obj = Object.create
+    
+        > obj
+        < Object {}
+
+        > var obj = Object.create (Object.prototype)
+        > var obj = {}
+
+        --------------------------------------------
+
+        var person = {
+            nombre: 'Mike',
+            apellido: 'Vivanco'
+        }
+
+        var mike = Object.create(person)
+
+        console.log (mike)              //  {}  
+        console.log (mike.__proto__)    //  {nombre: 'Mike', apellido: 'Vivanco'}
+
+    Object.assign
+
+        > var obj = {}
+    
+        > Object.assign (obj, {nombre: 'Ale', apellido: 'Miranda'})
+
+        > obj.nombre
+        < 'Ale'
+
+    HERENCIA EN JAVASCRIPT
+
+        > function Persona (nombre, apellido, ciudad) {
+              this.nombre = nombre
+              this.apellido = apellido
+              this.ciudad = ciudad
+          }
+
+        > Persona.prototype.saludar = function() {
+            console.log ('Soy ' + this.nombre + ' de ' + this.ciudad)
+        }
+
+        > var ale = new Persona ('Ale', 'Miranda', 'Cordoba')
+
+        > ale.saludar()
+        < Soy Ale de Cordoba
+
+
+    CLASES EN ECMAscript 2015 (ES6)
+
+     SINTAXIS
+
+        class Persona {
+            constructor (nombre, apellido) {
+                this.nombre = nombre
+                this.apellido = apellido
+                this.metodo1 = function() {
+                    return {
+                        Nombre: this.nombre,
+                        Apellido: this.apellido
+                    }
+                }
+                this.metodo2 = function() {
+                    return 'Hola mi nombre es ' +  this.nombre
+                }
+            }
+        }
+        
+        Existen 2 maneras de escribir métodos en este tipo de clases:
+        1. Llamando a "this." dentro del constructor , como en el ejemplo de arriba
+        2. Escribiendolo fuera del constructor, de esta manera:
+
+        class Persona {
+            constructor (nombre, apellido) {
+                this.nombre = nombre
+                this.apellido = apellido
+            }
+            metodo1() {
+                return {
+                        Nombre: this.nombre,
+                        Apellido: this.apellido
+                    }
+            }
+            metodo2() {
+                return 'Hola mi nombre es ' +  this.nombre
+            }
+        }
+
+        var geral = new Persona ('Geraldine', 'Lazo')
+
+        geral           // Persona {nombre: 'Geraldine', apellido: 'Lazo', metodo1: ƒ, metodo2: ƒ}
+        geral.nombre    // 'Geraldine'
+        geral.apellido  // 'Lazo'
+        geral.metodo1() // {Nombre: 'Geraldine', Apellido: 'Lazo'}
+        geral.metodo2() // 'Hola mi nombre es Geraldine'             
+        geral.__proto__ // {constructor: ƒ}
+
+
+
+CONSTRUCTOR DE CLASES
+
+    CONSTRUCTORES ANIDADOS
+
+        > function Persona (nombre, apellido, ciudad, curso) {
+            this.nombre = nombre
+            this.apellido = apellido
+            this.ciudad = ciudad
+            this.curso = curso
+        }
+
+        > Persona.prototype.saludar = function() {
+            console.log ('Soy ' + this.nombre + ' de ' + this.ciudad)
+        }
+
+        > var mike = new Persona ('Mike', 'Vivanco', 'Lima')
+
+        -------------------------------------------------------------------------------
+
+        > function Alumno (nombre, apellido, ciudad, curso) {
+              Persona.call (this, nombre, apellido ,ciudad)
+              this.curso = curso
+              this.empresa = 'Soy Henry'
+          }
+
+        > var gera = new Alumno ('Geraldine', 'Lazo', 'Huancayo', 'Web Full Stack')
+
+        > gera.curso
+        < Web Full Stack
+
+        > gera.apellido
+        < Lazo
+
+        > gera.saludar()
+        < Uncaught TypeError: gera.saludar is not a function
+
+        --------------------------------------------------------------------------------
+
+        > Alumno.prototype = Object.create(Persona.prototype)
+
+        > Alumno.prototype.constructor = Alumno
+
+        > var frank = new Alumno ('Frank', 'Saenz', 'Barcelona', 'Bootcamp')
+
+        > frank.saludar()
+        < 'Soy Frank de Barcelona'
+
+
+
+EXTENDS
+
+    La palabra clave extends es usada en la declaración o expresión de clases, 
+    para crear una clase hija de otra
+
+    SINTAXIS
+
+        class ChildClass extends ParentClass {...}
+
+    DESCRIPCIÓN
+
+        La palabra clave extends se puede usar para crear una subclase a partir de clases personalizadas,
+        así como sus objetos incorporados
+
+    EJEMPLOS
+
+        class Square extends Polygon {
+          constructor(length) {
+              super(length, length);
+              this.name = 'Square';
+          }
+          get area() {
+            return this.height * this.width;
+          }
+          set area(value) {
+            this.area = value;
+          }
+        }
+
+        En este ejemplo se crea la clase 'Square' a partir de la clase 'Polygon' (ya existente)
+        Nota: En las clases extendidas, se debe llamar a super(), de lo contrario retornará Error
+
+    COMO USAR EXTENDS CON OBJETOS incorporados
+
+        class myDate extends Date {
+          constructor() {
+            super();
+          }
+          getFormattedDate() {
+            var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+            return this.getDate() + "-" + months[this.getMonth()] + "-" + this.getFullYear();
+          }
+        }
+
+        En este ejemplo se extiende el objeto incorporado "Date"
+
+    EXTENDIENDO DE NULL
+
+        Extender de null es como hacerlo de una clase normal, excepto que el objeto prototype
+        no hereda de Object.prototype
+
+        class nullExtends extends null {
+          constructor() {}
+        }
+
+        Object.getPrototypeOf(nullExtends);             //      Function.prototype
+        Object.getPrototypeOf(nullExtends.prototype)    //      null    
+
+    EJEMPLO PRÁCTICO DE Henry
+
+        class Persona {
+            constructor (nombre, apellido) {
+                this.nombre = nombre
+                this.apellido = apellido
+            }
+            getNombre() {
+                return this.nombre
+            }
+            saludar() {
+                return 'Hola ' + this.nombre
+            }
+        }
+
+        class Empleado extends Persona {
+            constructor (nombre, apellido, empleo, sueldo) {
+                super (nombre, apellido)
+                this.empleo = empleo
+                this.sueldo = sueldo
+            }
+        }
+
+        var toni = new Empleado ('Toni', 'Tralice', 'Profesor', 100)
+
+        toni.saludar()      //      'Hola Toni'

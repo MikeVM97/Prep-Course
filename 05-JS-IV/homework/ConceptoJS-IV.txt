@@ -255,11 +255,27 @@ BUCLE FOR..IN
 
 NOTACIÓN DE PUNTOS vs NOTACIÓN DE CORCHETES
 
-        Ya sabemos que estas notaciones sirven para ACCEDER A LOS VALORES de las claves de un objeto
-        Ahora abordaremos en qúe se diferencian y porqué deberiamos tener cuidado al usarlos
+    NOTACIÓN DE PUNTOS
 
-        La notación de puntos es la forma más facil de usar para el acceso a un valor, pero tiene
-        la característica que solo se puede acceder a todos los valores en conjunto que contiene la clave a ser llamado
+        Con la notación de puntos podemos acceder al valor de una propiedad o modificar dicho valor
+        Dicha propiedad tiene que ser una propiedad conocida, de lo contrario no funcionará
 
-        Por otro lado, la notación de corchetes nos permite acceder a un valor específico (si así lo deseamos)
-        dentro de una clave que podría contener muchos valores
+        nuevoObjeto.propiedadN    //  Retorna el valor de la propiedadN de nuevoObjeto
+        nuevoObjeto.propiedadN = 'Hola' // Ahora la propiedadN contiene el valor 'Hola'
+
+    NOTACIÓN DE CORCHETES
+
+        Con la notación de corchetes podemos hacer 2 cosas
+
+        1. Acceder al valor de una propiedad, usando el nombre de la propiedad entre comillas
+           Dicha propiedad tiene que ser una propiedad conocida, de lo contrario no funcionará 
+
+        nuevoObjeto['propiedadN']  // Retorna el valor de la propiedadN de nuevoObjeto
+
+        2. Asignar un nuevo valor a una propiedad, usando el nombre de la propiedad sin comillas
+
+        nuevoObjeto[propiedadN] = 'Hello'
+        // Ahora la propiedadN contiene el valor 'Hello'
+
+
+
