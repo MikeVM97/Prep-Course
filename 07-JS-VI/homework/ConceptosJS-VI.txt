@@ -1,2 +1,101 @@
 FUNCIONES CALLBACK
 
+    DESCRIPCIÓN
+
+        Una función de callback es una función que se pasa a otra función como un argumento
+        Que luego se invoca dentro de la función externa para completar algún tipo de rutina o acción
+
+    EJEMPLO
+
+        function saludar (nombre) {
+            return ('Hola ' + nombre + ' !')
+        }
+
+        function crearSaludo (nombre, callback) {
+            return callback (nombre)
+        }
+
+        crearSaludo ('Mike', saludar)       //      Hola Mike !
+
+
+
+
+    USO DE CALLBACKS EN ARRAYS
+
+        Los métodos de matriz que veremos a continuación se denominan "métodos de orden superior"
+        porque toman los callbacks como argumentos 
+
+
+    .forEach
+
+        Es un bucle for integrado en cada array
+        Lo que hace es tomar un callback como su único argumento, e itera sobre cada elemento de la matriz y llama al callback en él
+        El callback puede tomar 2 argumentos, el primero es el elemento en sí, el segundo es el índice del elemento (opcional)
+
+        const autos = ["Ford", "Chevrolet", "Toyota", "Tesla"]
+        ----------------------------------------------------------
+        autos.forEach (function (elemento,indice) {
+            console.log (elemento)
+        })
+        ----------------------------------------------------------
+        function mostrarNombres (elemento) {
+            console.log (elemento)
+        }
+
+        autos.forEach (mostrarNombres)
+
+
+    .reduce
+
+        .reduce ejecutará un bucle en nuestra matriz con la intención de reducir cada elemento en un elemento que se devuelve
+        Como es el primer argumento, acepta un callback que toma 2 argumentos
+        Primero un 'acumulador' (el resultado del método de reducción hasta ahora)
+        El segundo es el elemento en el que se encuentra actualmente
+        El callback debe contener siempre una declaración de devolución (return)
+        .reduce también toma un segundo argumento opcional, que sería el acumulador de arranque
+        Si no se suministra el acumulador de arranque, la reducción comenzará en el primer elemento de la matriz
+        .reduce siempre devolverá el acumulador cuando termine de recorrer los elementos
+
+        const numeros = [1,2,3,4,5,6,7,8,9]
+        const palabras = ["Hola", "mi", "nombre", "es", "Mike"]
+
+        const suma = numeros.reduce (function (acc, elemento) {
+            return acc + elemento
+        })
+
+        function multiplicarDosNumeros (a, b) {
+            return a * b
+        }
+
+        const productos = numeros.reduce (multiplicarDosNumeros)
+
+        const frases = palabras.reduce (function (acc, elemento) {
+            return acc + " " + elemento
+        }, "Frase completa:")
+
+        console.log (suma)              //      45
+        console.log (productos)         //      362880
+        console.log (frases)             //      "Frase completa: Hola mi nombre es Mike"
+
+
+    .map
+
+        .map se usa cuando queremos cambiar cada elemento de una matriz de la misma manera
+        .map toma una devolución de llamada como único argumento
+        Al igual que .forEach, el callback tiene el elemento y el índice de argumentos opcionales 
+        A diferencia de .reduce, .map devolverá toda la matriz
+
+        const numeros = [2,3,4,5]    
+
+        function multiplicarPorTres (elemento) {
+            return elemento * 3
+        }
+
+        const doble = numeros.map (function (elemento) {
+            return elemento * 2
+        })
+
+        const triple = numeros.map (multiplicarPorTres)
+
+        console.log(doble)          //      [4,6,8,10]
+        console.log(triple)         //      [6,9,12,15]
