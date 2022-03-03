@@ -1,5 +1,5 @@
 h1 {
-    color: burlywood
+    color: saddlebrown
 }
 img {
     width: 400px
@@ -12,8 +12,23 @@ img {
     border-width: 35px;
     border-color: seagreen;
     border-style: dotted;
+    position: absolute;
+    top: 250px;
+    left: 625px;
 }
 #spanId {
     font-size: 18px;
     margin: 50px;
 }
+#divId {
+    background: url('https://cdn.pixabay.com/photo/2018/09/05/04/21/flowers-3655451__480.jpg');
+}
+.divClass {
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; */
+    display: block;
+    text-align: center;
+}
+
